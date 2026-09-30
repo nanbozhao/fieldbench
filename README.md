@@ -35,8 +35,8 @@ export S2_API_KEY=your_key
 
 python cli.py \
   --topics T11948 T10211 T10836 \
-  --dois 10.1039/D2SC06041H 10.48550/arXiv.2311.07341 \
-  --name "Bozhao Nan" --oa-id A5023104692 \
+  --dois 10.0000/example.doi.1 10.48550/arXiv.0000.00001 \
+  --name "Jane Doe" --oa-id A1234567890 \
   --min-topic-works 2 --first-pub-from 2020 --first-pub-to 2022
 ```
 
@@ -62,9 +62,9 @@ from fieldbench.cache import Cache
 
 result = run(
     topic_ids=["T11948", "T10211", "T10836"],
-    subject_dois=["10.1039/D2SC06041H"],
-    subject_name="Bozhao Nan",
-    subject_oa_id="A5023104692",
+    subject_dois=["10.0000/example.doi.1"],
+    subject_name="Jane Doe",
+    subject_oa_id="A1234567890",
     min_topic_works=2,
     cache=Cache(),
 )
@@ -92,7 +92,6 @@ print(markdown(result))
 
 ```bibtex
 @software{nan2026fieldbench,
-  author = {Nan, Bozhao},
   title = {fieldbench: open field-normalized citation benchmarking},
   version = {0.1.0},
   date = {2026-09-30},

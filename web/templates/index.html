@@ -27,11 +27,11 @@ Rank a researcher against a transparent cohort: same topics, same career stage.<
 
 <form id="f">
   <label>Researcher name</label>
-  <input name="name" required placeholder="e.g. Bozhao Nan">
+  <input name="name" required placeholder="e.g. Jane Doe">
   <label>Their paper DOIs <span class="hint">(3–5 representative papers; used to identify the author record)</span></label>
-  <textarea name="dois" rows="3" required placeholder="10.1039/D2SC06041H&#10;10.48550/arXiv.2311.07341"></textarea>
+  <textarea name="dois" rows="3" required placeholder="10.0000/example.doi.1&#10;10.48550/arXiv.0000.00001"></textarea>
   <label>OpenAlex author ID <span class="hint">(optional, excludes them from the cohort)</span></label>
-  <input name="oa_id" placeholder="e.g. A5023104692">
+  <input name="oa_id" placeholder="e.g. A1234567890">
   <label>Field topics <span class="hint">(search OpenAlex topics, pick 1–4)</span></label>
   <input id="topicSearch" placeholder="type to search, e.g. computational chemistry">
   <div id="topicResults"></div>
@@ -48,7 +48,7 @@ Rank a researcher against a transparent cohort: same topics, same career stage.<
   <p class="hint">Runs take 10–40 minutes (it pages OpenAlex and resolves every cohort member in Semantic Scholar). You'll get a live progress page.</p>
 </form>
 
-<footer>fieldbench 0.1.0 · MIT licensed · <a href="https://github.com/bozhaonan/fieldbench">GitHub</a> · cite via Zenodo DOI</footer>
+<footer>fieldbench 0.1.0 · MIT licensed · <a href="https://github.com/nanbozhao/fieldbench">GitHub</a> · cite via Zenodo DOI</footer>
 
 <script>
 const picked = new Map();
