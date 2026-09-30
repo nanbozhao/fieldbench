@@ -3,8 +3,7 @@
 **Open, reproducible field-normalized citation benchmarking.**
 
 Give it a researcher and a field definition; get back an evidence-grade percentile rank:
-*"Dr. X ranks at the 86th percentile for citations among 5,300 active early-career
-researchers in computational chemistry"* — with the cohort definition, the data sources,
+*"Dr. Z ranks in the top 10% for citations among 2,000 active researchers in the field"* — with the cohort definition, the data sources,
 and the code to reproduce it, all disclosed.
 
 Built for high-stakes research evaluation (e.g., EB-1A "final merits" field benchmarks),
@@ -36,7 +35,7 @@ export S2_API_KEY=your_key
 python cli.py \
   --topics T11948 T10211 T10836 \
   --dois 10.0000/example.doi.1 10.48550/arXiv.0000.00001 \
-  --name "Jane Doe" --oa-id A1234567890 \
+  --name "Zhangsanfeng" --oa-id A1234567890 \
   --min-topic-works 2 --first-pub-from 2020 --first-pub-to 2022
 ```
 
@@ -63,7 +62,7 @@ from fieldbench.cache import Cache
 result = run(
     topic_ids=["T11948", "T10211", "T10836"],
     subject_dois=["10.0000/example.doi.1"],
-    subject_name="Jane Doe",
+    subject_name="Zhangsanfeng",
     subject_oa_id="A1234567890",
     min_topic_works=2,
     cache=Cache(),

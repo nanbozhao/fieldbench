@@ -12,7 +12,7 @@ def main():
     ap = argparse.ArgumentParser(description="Field-normalized citation benchmark")
     ap.add_argument("--topics", nargs="+", required=True, help="OpenAlex topic IDs, e.g. T11948 T10211")
     ap.add_argument("--dois", nargs="+", required=True, help="Subject's paper DOIs (for S2 author resolution)")
-    ap.add_argument("--name", required=True, help="Subject display name, e.g. 'Jane Doe'")
+    ap.add_argument("--name", required=True, help="Subject display name, e.g. 'Zhangsanfeng'")
     ap.add_argument("--oa-id", default=None, help="Subject OpenAlex author ID (excluded from cohort)")
     ap.add_argument("--year-from", type=int, default=2022)
     ap.add_argument("--year-to", type=int, default=2024)
