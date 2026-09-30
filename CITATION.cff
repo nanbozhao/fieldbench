@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "fieldbench: open field-normalized citation benchmarking"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Nan
+    given-names: Bozhao
+license: MIT
+version: 0.1.0
+date-released: 2026-09-30
+repository-code: "https://github.com/nanbozhao/fieldbench"
+abstract: >-
+  fieldbench percentile-ranks a researcher against a transparent,
+  reproducible cohort: authors active in the same OpenAlex topics,
+  matched on career stage (first-publication year), with headline
+  metrics drawn from Semantic Scholar. Built for evidence-grade
+  research evaluation (e.g., EB-1A "final merits" field benchmarks).

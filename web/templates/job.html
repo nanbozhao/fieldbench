@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fieldbench — job {{ job_id }}</title>
+<style>
+  body{font-family:-apple-system,system-ui,"Segoe UI",sans-serif;max-width:640px;margin:60px auto;padding:24px;color:#1a1a1a;background:#fafafa;text-align:center}
+  .bar{height:10px;background:#e0e0e0;border-radius:5px;overflow:hidden;margin:20px 0}
+  .bar>div{height:100%;background:#1a73e8;width:0%;transition:width .5s}
+  #msg{color:#555;min-height:24px}
+  .spin{font-size:40px;animation:spin 2s linear infinite;display:inline-block}
+  @keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="spin">⏳</div>
+<h2>Benchmark running…</h2>
+<div class="bar"><div id="fill"></div></div>
+<p id="msg">queued</p>
+<p style="color:#888;font-size:13px">This typically takes 10–40 minutes. You can leave and come back — this URL is your job ticket.</p>
+<script>
+const jid = "{{ job_id }}";
+const stages = {queued:2, collect_pool:20, author_details:35, first_pub_year:55, s2_dois:65, s2_papers:75, s2_match:85, s2_authors:95, done:100};
+async function poll() {
+  const j = await fetch('/api/jobs/' + jid).then(r => r.json());
+  if (j.status === 'done') { location.href = '/result/' + jid; return; }
+  if (j.status === 'failed') {
+    document.querySelector('.spin').textContent = '❌';
+    document.querySelector('h2').textContent = 'Job failed';
+    document.getElementById('msg').textContent = (j.error || 'unknown error').slice(0, 500);
+    return;
+  }
+  const p = j.progress || {};
+  document.getElementById('fill').style.width = (stages[p.stage] || 5) + '%';
+  document.getElementById('msg').textContent = (p.stage || 'queued') + (p.message ? ' — ' + p.message : '');
+  setTimeout(poll, 4000);
+}
+poll();
+</script>
+</body>
+</html>
